@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+
+# Build output
+dist/
+build/
+.next/
+__pycache__/
+*.pyc
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ML model training cache
+backend/scripts/*.pkl
+
+# Logs
+*.log
+*.log.err
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
