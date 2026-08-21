@@ -11,6 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 import type { SatelliteObject, SatGroup } from "@/utils/orbitalPropagation";
 import type { GlobeFilters } from "@/components/orbital/LiveOrbitalScene";
+import { useNavigate } from "@tanstack/react-router";
 
 type PopoverKey = "filter" | "search" | "info" | null;
 
@@ -71,6 +72,7 @@ export function ControlDock({
   onSelectSatellite: (s: SatelliteObject) => void;
 }) {
   const [open, setOpen] = useState<PopoverKey>(null);
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -169,15 +171,6 @@ export function ControlDock({
         </div>
       )}
 
-      {open === "info" && (
-        <div className="pointer-events-auto mb-2 w-[min(360px,90vw)] border border-border bg-background/85 p-3 font-mono text-[10px] leading-relaxed tracking-[0.08em] text-muted-foreground backdrop-blur-xl">
-          <p className="mb-1 tracking-[0.22em] text-primary">ORBITAL AI · PROTOTYPE</p>
-          Real orbital element sets from CelesTrak GP, propagated in-browser with SGP4.
-          Click any object for intelligence, then select a second object for a prototype
-          conjunction screening. Risk values are illustrative, not operational Pc.
-        </div>
-      )}
-
       <div className="pointer-events-auto flex items-center gap-1.5 border border-border/70 bg-background/60 p-1.5 backdrop-blur-xl">
         <DockButton
           label="SATELLITES / CONSTELLATIONS"
@@ -211,9 +204,8 @@ export function ControlDock({
           <RefreshCw className={cn("h-4 w-4", refreshing && "animate-spin")} />
         </DockButton>
         <DockButton
-          label="INFORMATION"
-          active={open === "info"}
-          onClick={() => setOpen(open === "info" ? null : "info")}
+          label="MISSION CONTROL"
+          onClick={() => navigate({ to: "/mission-control" })}
         >
           <Info className="h-4 w-4" />
         </DockButton>
