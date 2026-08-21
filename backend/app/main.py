@@ -103,7 +103,7 @@ def create_app() -> FastAPI:
         CORSMiddleware,
         allow_origins=settings.cors_origins,
         allow_credentials=True,
-        allow_methods=["GET", "POST"],
+        allow_methods=["*"],
         allow_headers=["*"],
         max_age=600,
     )
@@ -136,6 +136,10 @@ def create_app() -> FastAPI:
                 "message": "An unexpected error occurred",
             },
         )
+    @app.get("/", include_in_schema=False)
+    async def root():
+        from fastapi.responses import RedirectResponse
+        return RedirectResponse(url="/docs")
 
     # --- Include Routers ---
     from app.api.health import router as health_router

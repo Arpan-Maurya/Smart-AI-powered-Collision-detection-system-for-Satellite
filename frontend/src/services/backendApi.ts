@@ -113,7 +113,7 @@ export interface PairTles {
 
 export function getBackendBase(): string {
   const configured = import.meta.env["VITE_BACKEND_URL"] as string | undefined;
-  return (configured ?? "http://localhost:8000").replace(/\/$/, "");
+  return (configured ?? "https://orbital-ai-xpcy.onrender.com/").replace(/\/$/, "");
 }
 
 function tleChecksum(line: string): string {
@@ -151,10 +151,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return (await res.json()) as T;
 }
 
-export async function analyzePair(
-  pair: PairTles,
-  horizonHours = 6,
-): Promise<AnalyzeResponse> {
+export async function analyzePair(pair: PairTles, horizonHours = 6): Promise<AnalyzeResponse> {
   return request<AnalyzeResponse>("/orchestration/analyze", {
     method: "POST",
     body: JSON.stringify({

@@ -11,6 +11,8 @@ logger = None
 router = APIRouter(prefix="/models", tags=["ML Models"])
 
 
+from typing import Optional
+
 class ModelsStatusResponse(BaseModel):
     model_version: str
     is_mock: bool
@@ -19,8 +21,8 @@ class ModelsStatusResponse(BaseModel):
     feature_count: int
     loaded: bool
     status: str
-    regressor: str | None = None
-    classifier: str | None = None
+    regressor: Optional[str] = None
+    classifier: Optional[str] = None
 
 
 @router.get(

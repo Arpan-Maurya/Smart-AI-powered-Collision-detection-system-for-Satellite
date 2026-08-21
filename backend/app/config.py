@@ -43,7 +43,7 @@ class Settings(BaseSettings):
 
     # --- CORS ---
     frontend_url: str = Field(
-        default="http://localhost:8501",
+        default="*",
         description="Comma-separated allowed origins for CORS",
     )
 
