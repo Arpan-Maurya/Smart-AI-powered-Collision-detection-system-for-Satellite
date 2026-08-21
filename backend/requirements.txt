@@ -35,4 +35,8 @@ pytest-cov==7.1.0
 httpx  # already listed, also used in tests
 
 # WebSocket (included in uvicorn[standard])
+<<<<<<< HEAD
 websockets==14.2
+=======
+websockets==14.2
+>>>>>>> 173132a0be834a60ce917a61807849bdac0ec425
