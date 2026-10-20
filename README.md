@@ -107,3 +107,11 @@ python scripts/train_models.py
 - Trained on synthetic physics labels, not historical collision outcomes
 - Orchestrator persistence uses in-memory store (Supabase optional)
 - Not certified for operational use — decision-support prototype only
+
+# 🤝 Contribution
+
+| Role | Contributor |
+|---|---|
+| Frontend Development | Vinayak Kesarkar |
+| Backend Development  | Arpan Maurya |
+| Machine Learning     |  Rehan Khan |
