@@ -112,6 +112,7 @@ python scripts/train_models.py
 
 | Role | Contributor |
 |---|---|
-| Frontend Development | Vinayak Kesarkar |
+| Frontend Development | Vinayak Kesarkar & Amaan Huda |
 | Backend Development  | Arpan Maurya |
 | Machine Learning     |  Rehan Khan |
+ 
